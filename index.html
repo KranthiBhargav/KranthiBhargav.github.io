@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kranthi B. Irlapati — Sr. SDET · Test Automation Engineer</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{--bg:#0a0e13;--panel:#111821;--line:#1e2935;--text:#d6dee8;--muted:#7d8ea1;--a:#4ade80;--b:#38bdf8;--w:#fbbf24;
+--mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f5f7fa;--panel:#fff;--line:#d5dce4;--text:#1f2933;--muted:#5b6b7b;--a:#15803d;--b:#0369a1;--w:#b45309}}
+:root[data-theme="light"]{--bg:#f5f7fa;--panel:#fff;--line:#d5dce4;--text:#1f2933;--muted:#5b6b7b;--a:#15803d;--b:#0369a1;--w:#b45309}
+:root[data-theme="dark"]{--bg:#0a0e13;--panel:#111821;--line:#1e2935;--text:#d6dee8;--muted:#7d8ea1;--a:#4ade80;--b:#38bdf8;--w:#fbbf24}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--mono);font-size:14px;line-height:1.65;
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:44px 44px;background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(ellipse at 20% 0,transparent,var(--bg) 75%);pointer-events:none;z-index:0}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--a),var(--b));transition:width .5s;z-index:30}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:16px;padding:10px 18px}
+.logo{color:var(--a);font-weight:600;white-space:nowrap}
+nav{min-width:0;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1}
+nav button{font:inherit;background:none;border:1px solid transparent;color:var(--muted);padding:5px 12px;border-radius:6px;cursor:pointer;white-space:nowrap;transition:.2s}
+nav button:hover{color:var(--text);border-color:var(--line)}
+nav button.on{color:var(--a);border-color:var(--a);background:color-mix(in srgb,var(--a) 10%,transparent)}
+nav button i{font-style:normal;color:var(--muted);margin-right:6px}
+main{position:relative;z-index:1;max-width:940px;margin:0 auto;padding:20px 18px 56px}
+.page{padding:30px 0 40px;scroll-margin-top:72px}.rv{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}.cta{background:var(--a);color:#06240f;font-weight:600;text-decoration:none;padding:7px 14px;border-radius:8px;white-space:nowrap;transition:.2s;box-shadow:0 0 0 0 var(--a)}.cta:hover{transform:translateY(-2px);box-shadow:0 6px 20px -6px var(--a)}.cta.big{display:inline-block;padding:12px 22px;font-size:1rem;margin-bottom:22px}.glance{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:20px 0}.glance div{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--a);border-radius:8px;padding:10px 14px}.glance small{display:block;color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em}
+@keyframes in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+h1{font-size:clamp(1.9rem,6vw,3rem);margin:.2em 0 .1em;letter-spacing:-.03em}
+h2{font-size:1.15rem;margin:0 0 20px;color:var(--a)}h2::before{content:"// ";color:var(--muted)}
+.cur::after{content:"▌";color:var(--a);animation:bl 1s steps(2) infinite}
+@keyframes bl{50%{opacity:0}}
+.term{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:22px 0;box-shadow:0 10px 40px -20px var(--a)}
+.term .tb{display:flex;gap:6px;padding:9px 12px;border-bottom:1px solid var(--line)}
+.term .tb s{width:10px;height:10px;border-radius:50%;background:var(--line);display:block}
+.term .tb s:nth-child(1){background:#ef4444}.term .tb s:nth-child(2){background:var(--w)}.term .tb s:nth-child(3){background:var(--a)}
+.term pre{margin:0;padding:14px 16px;min-height:150px;white-space:pre-wrap;font:inherit}
+.p{color:var(--a)}.o{color:var(--muted);animation:in .4s}.k{color:var(--b)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;transition:.25s}
+.stat:hover{transform:translateY(-3px);border-color:var(--a)}
+.stat b{display:block;font-size:2.8rem;line-height:1.1;color:var(--a)}.stat b .n{font-size:1em;color:var(--a)}.stat b .u{font-size:.5em;font-weight:400;margin-left:2px;vertical-align:.45em}.stat>span{color:var(--muted);font-size:.8rem}
+.pipe{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:22px}
+.st{padding:7px 12px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--muted);transition:.3s;position:relative}
+.st.run{border-color:var(--w);color:var(--w)}.st.ok{border-color:var(--a);color:var(--a)}.st.ok::before{content:"✓ "}.st.run::before{content:"◌ ";display:inline-block;animation:sp 1s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.pipe em{color:var(--muted);font-style:normal}
+.lbl{color:var(--muted);font-size:.8rem;margin-top:22px}
+.ex{display:grid;grid-template-columns:200px 1fr;gap:16px}
+.tabs{display:flex;flex-direction:column;gap:8px}
+.tabs button{font:inherit;text-align:left;background:var(--panel);border:1px solid var(--line);color:var(--muted);padding:10px 12px;border-radius:8px;cursor:pointer;transition:.2s}
+.tabs button:hover{border-color:var(--b)}.tabs button.on{border-color:var(--a);color:var(--text);box-shadow:inset 3px 0 var(--a)}
+.tabs small{display:block;color:var(--muted)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px}
+.card h3{margin:0;font-size:1.05rem;color:var(--b)}.meta{color:var(--muted);font-size:.8rem;margin:2px 0 12px}
+.card ul{list-style:none;padding:0;margin:0}
+.card li{padding:6px 0 6px 20px;position:relative;opacity:0;animation:in .5s forwards}
+.card li::before{content:"›";position:absolute;left:4px;color:var(--a)}
+.bars{display:grid;gap:18px}
+.bar .t{display:flex;justify-content:space-between;margin-bottom:6px;gap:10px}.bar .t span:last-child{color:var(--a)}
+.trk{height:10px;background:var(--panel);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.fill{height:100%;width:0;background:linear-gradient(90deg,var(--b),var(--a));border-radius:6px;transition:width 1.3s cubic-bezier(.2,.8,.2,1)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.chips button{font:inherit;background:none;border:1px solid var(--line);color:var(--muted);padding:5px 12px;border-radius:20px;cursor:pointer;transition:.2s}
+.chips button:hover{color:var(--text)}.chips button.on{background:var(--a);color:#06240f;border-color:var(--a)}
+.tags{display:flex;flex-wrap:wrap;gap:10px}
+.tag{padding:6px 12px;border:1px solid var(--line);background:var(--panel);border-radius:6px;transition:.25s;animation:in .4s backwards}
+.tag:hover{border-color:var(--b);color:var(--b);transform:translateY(-2px)}
+.tag small{color:var(--muted);margin-left:6px}
+.ct{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.ct a{color:var(--b);text-decoration:none}.ct a:hover{text-decoration:underline}
+.dots{display:flex;gap:8px;align-items:center}.dots i{width:8px;height:8px;border-radius:50%;background:var(--line);cursor:pointer;transition:.3s}
+.dots i.on{background:var(--a);width:24px;border-radius:6px}.dots span{color:var(--muted);margin-left:8px;font-size:.8rem}
+kbd{border:1px solid var(--line);border-radius:4px;padding:0 5px;color:var(--muted);font-size:.75rem}
+@media(max-width:700px){.ex{grid-template-columns:1fr}.tabs{flex-direction:row;overflow-x:auto}.tabs button{white-space:nowrap}.logo{display:none}.dots span,.hint{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;transition-duration:.01s!important}}
+.wm-wrap{margin:8px 0 6px}.wm-l{color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;margin:14px 0 8px}.wm-row{display:flex;flex-wrap:wrap;gap:10px}.wm{padding:9px 16px;border:1px solid var(--line);background:var(--panel);border-radius:8px;color:var(--text);font-size:.95rem;line-height:1;transition:.25s;opacity:0;animation:in .5s forwards}.wm:hover{border-color:var(--a);color:var(--a);transform:translateY(-2px)}.wm.a{font-weight:600;letter-spacing:.02em}.wm.b{font-weight:400;letter-spacing:.14em;text-transform:uppercase;font-size:.85rem}.wm.c{font-weight:600;letter-spacing:-.03em;font-size:1.05rem}.wm.d{font-style:italic;letter-spacing:.04em}.soc{display:flex;gap:6px}.soc a,.soc2 a{display:inline-flex;align-items:center;gap:8px;color:var(--muted);border:1px solid var(--line);background:var(--panel);border-radius:8px;text-decoration:none;transition:.2s}.soc a{padding:6px 10px}.soc a:hover,.soc2 a:hover{color:var(--a);border-color:var(--a);transform:translateY(-2px)}.soc2{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 22px}.soc2 a{padding:10px 16px;color:var(--text)}@media(max-width:700px){.soc a span{display:none}}</style>
+</head>
+<body>
+<div id="bar"></div>
+<header><div class="logo">kranthi@qa:~$</div><nav id="nav"></nav><div class="soc"><a class="" href="https://github.com/KranthiBhargav/Java_Devops-/tree/master" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="5" r="2.2"/><circle cx="6" cy="19" r="2.2"/><circle cx="18" cy="8" r="2.2"/><path d="M6 7.2v9.6M18 10.2c0 5-8 3-12 6.6"/></svg><span>GitHub</span></a><a class="" href="https://leetcode.com/u/kranthiirlapati/" target="_blank" rel="noopener noreferrer" title="LeetCode" aria-label="LeetCode"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M13.5 5l-3 14"/></svg><span>LeetCode</span></a><a class="" href="https://www.linkedin.com/in/kranthi-b-i-b62375157/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c.8-4 3.6-6 7.5-6s6.7 2 7.5 6"/></svg><span>LinkedIn</span></a></div><a class="cta" href="mailto:kran75@hotmail.com?subject=Interview%20opportunity%20for%20Kranthi">✉ Let's talk</a></header>
+<main>
+<section class="page" id="p0">
+  <h1 id="name" class="cur"></h1>
+  <div style="color:var(--b)">Sr. SDET · Test Automation &amp; DevOps · GCP · Terraform · ISTQB &amp; AWS Certified</div><div class="glance"><div><small>currently</small>Sr. SDET (Level 7) · Scotiabank</div><div><small>cloud &amp; devops</small>GCP · Terraform IaC · Kubernetes · CI/CD</div><div><small>open to</small>Sr. SDET · SDET · Lead · Manager · DevOps · Cloud roles</div></div>
+  <div class="term"><div class="tb"><s></s><s></s><s></s></div><pre id="tp"></pre></div><div class="wm-wrap"><div class="wm-l">employers</div><div class="wm-row"><span class="wm a" style="animation-delay:0ms">Scotiabank</span><span class="wm c" style="animation-delay:70ms">S&amp;P Global</span><span class="wm b" style="animation-delay:140ms">APAG Cosyst</span><span class="wm d" style="animation-delay:210ms">NTT DATA</span></div><div class="wm-l">clients delivered for</div><div class="wm-row"><span class="wm c" style="animation-delay:280ms">BMO</span><span class="wm a" style="animation-delay:350ms">RBC</span><span class="wm d" style="animation-delay:420ms">Morgan Stanley</span><span class="wm a" style="animation-delay:490ms">Wells Fargo</span><span class="wm b" style="animation-delay:560ms">BMW</span><span class="wm c" style="animation-delay:630ms">Volkswagen Group</span><span class="wm d" style="animation-delay:700ms">The Hanover</span><span class="wm b" style="animation-delay:770ms">Medica</span></div></div>
+  <div class="stats">
+    <div class="stat"><b><span class="n" data-to="9">0</span><span class="u">+</span></b><span>years in test automation</span></div>
+    <div class="stat"><b><span class="n" data-to="90">0</span><span class="u">%</span></b><span>peak automation coverage</span></div>
+    <div class="stat"><b><span class="n" data-to="5000">0</span><span class="u">+</span></b><span>automated test scripts, overall</span></div>
+    <div class="stat"><b><span class="n" data-to="85">0</span><span class="u">%</span></b><span>fewer prod defects (peak)</span></div>
+  </div>
+  <div class="lbl">$ ./pipeline --run   <span style="opacity:.7">(how I think about quality: shift left, gate everything)</span></div>
+  <div class="pipe" id="pipe"></div>
+</section>
+<section class="page" id="p1"><h2>experience</h2><div class="ex"><div class="tabs" id="tabs"></div><div class="card" id="exc"></div></div></section>
+<section class="page" id="p2"><h2>devops &amp; cloud</h2><p style="margin:0 0 4px;max-width:64ch">I work intensively with GCP. Infrastructure as code with Terraform is where I'm skilled and most keen to go deeper.</p><div class="ct"><div class="card"><h3>GCP</h3><p style="margin:8px 0 0">Works intensively with GCP. At Scotiabank, pipeline test suites run in parallel on GCP cloud runners.</p></div><div class="card"><h3>Terraform &amp; IaC</h3><p style="margin:8px 0 0">Built infrastructure as code on GCP with Terraform for the key services a banking application depends on, provisioned to compliance requirements so the application hosts and runs reliably.</p></div><div class="card"><h3>Kubernetes &amp; containers</h3><p style="margin:8px 0 0">Automated K8s cluster upgrades and server patching at Scotiabank. Docker-containerized frameworks deployed on AWS EKS and Azure.</p></div><div class="card"><h3>CI/CD</h3><p style="margin:8px 0 0">Jenkins pipelines with parallel execution, tests wired into every build and SonarQube code-quality monitoring.</p></div><div class="card"><h3>Observability</h3><p style="margin:8px 0 0">Grafana, Kibana, Prometheus and Dynatrace for production traffic and quality signals.</p></div><div class="card"><h3>Linux &amp; AWS</h3><p style="margin:8px 0 0">Linux administration. AWS EC2, EKS and S3. AWS Certified Cloud Practitioner.</p></div></div></section>
+<section class="page" id="p3"><h2>impact --metrics</h2><div class="bars" id="bars"></div></section>
+<section class="page" id="p4"><h2>skills --list</h2><div class="chips" id="chips"></div><div class="tags" id="tags"></div></section>
+<section class="page" id="p5"><h2>contact</h2><p style="margin:0 0 16px">Hiring for SDET, QA leadership or DevOps? Let's talk.</p><a class="cta big" href="mailto:kran75@hotmail.com?subject=Interview%20opportunity%20for%20Kranthi">✉ Email me about an interview</a><div class="soc2"><a class="" href="https://github.com/KranthiBhargav/Java_Devops-/tree/master" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="5" r="2.2"/><circle cx="6" cy="19" r="2.2"/><circle cx="18" cy="8" r="2.2"/><path d="M6 7.2v9.6M18 10.2c0 5-8 3-12 6.6"/></svg><span>GitHub</span></a><a class="" href="https://leetcode.com/u/kranthiirlapati/" target="_blank" rel="noopener noreferrer" title="LeetCode" aria-label="LeetCode"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M13.5 5l-3 14"/></svg><span>LeetCode</span></a><a class="" href="https://www.linkedin.com/in/kranthi-b-i-b62375157/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c.8-4 3.6-6 7.5-6s6.7 2 7.5 6"/></svg><span>LinkedIn</span></a></div>
+  <div class="ct">
+    <div class="card"><h3>Reach me</h3><div class="meta">open to SDET, Lead, Manager, DevOps &amp; Cloud roles</div>
+      <p>✉ <a href="mailto:kran75@hotmail.com">kran75@hotmail.com</a></p><p>⌖ Markham, Ontario, Canada</p></div>
+    <div class="card"><h3>Education &amp; certifications</h3><div class="meta">credentials</div>
+      <p>M.Eng, Electrical &amp; Computer Engineering — University of Windsor (2018–2019)</p><p>ISTQB Certified · AWS Certified Cloud Practitioner</p></div>
+  </div>
+</section>
+</main>
+<script>
+const PG=[["overview","home"],["experience","exp"],["devops & cloud","infra"],["impact","metrics"],["skills","stack"],["contact","reach"]];
+const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const sleep=ms=>new Promise(r=>setTimeout(r,RM?0:ms));
+let cur=-1,tok=0;
+const EXP=[
+{co:"Scotiabank",role:"Sr. SDET — Level 7",when:"Mar 2025 – Present",loc:"Toronto, ON",pts:[
+"89% automation coverage across 5,000+ scripts for legacy banking apps by shifting from UI to API-layer validation.",
+"Led a team of four on CDIC, PRM and Bill-64 compliance automation (regression, server patches, K8s upgrades): 2 months down to 2 weeks.",
+"API, contract, UI and performance testing for core banking microservices (event-driven); API-first coverage of Tangerine's Digital Wealth mobile app.",
+"Validation strategy for GenAI chatbots and RAG retrieval; pioneered MCP integration of JIRA and Docker into VS Code Copilot for live sprint, regression and container metrics.",
+"Parallel test execution on GCP cloud runners; code reviews on API, E2E and unit tests."]},
+{co:"S&P Global",role:"Sr. SDET (SME) — Grade 9",when:"Aug 2020 – Dec 2024",loc:"Toronto, ON · Hybrid",pts:[
+"Clients: BMO, RBC, Morgan Stanley, Wells Fargo.",
+"Architected frameworks for BMO InvestorLine, BMO NB and RBC Direct Investing: 90% coverage, 3,000+ scripts across functional, regression, API, performance and WCAG 2.1 accessibility.",
+"Led and mentored 6–8 SDETs; owned QA strategy, CI/CD integration, triage and RCA.",
+"Cut production defects by 80–85% with data-driven regression suites.",
+"Dockerized frameworks on AWS (EC2, EKS, S3) and Azure; Jenkins pipelines with SonarQube, Grafana and Kibana monitoring."]},
+{co:"APAG Cosyst",role:"SDET",when:"Jul 2019 – Aug 2020",loc:"Windsor, ON",pts:[
+"Clients: BMW, Volkswagen Group.",
+"70% automation coverage across SIT/UAT for web, mobile and cloud ERP (Selenium-Python, REST Assured, Postman, Appium).",
+"Hands-on with CUDA, HIL testing, ECU flashing, PCB design and SoC architecture, bridging software QA and hardware validation.",
+"Led test strategy across EU and APAC teams; Jenkins pipelines."]},
+{co:"NTT DATA",role:"Application Software Dev Sr. Associate",when:"Feb 2016 – Jan 2018",loc:"Massachusetts, USA",pts:[
+"Clients: The Hanover Insurance, Medica Healthcare.",
+"Automated Guidewire PolicyCenter and ClaimCenter; functional, integration and API testing of microservices.",
+"Reduced manual testing effort by 55%."]}];
+const BARS=[["Automation coverage · S&P Global",90,"90%"],["Automation coverage · Scotiabank",89,"89%"],["Automation coverage · APAG Cosyst",70,"70%"],
+["Production defects reduced · S&P Global",85,"80–85%"],["Compliance delivery time cut · Scotiabank",75,"2 months → 2 weeks"],["Manual testing effort reduced · NTT DATA",55,"55%"]];
+const SK0={testing:["Cypress","WDIO","TestCafe","Playwright","Selenium","Appium","Postman","Guidewire 7.x–9.x"],
+languages:["Core Java","Python","JavaScript","SQL","HTML5","CSS3","Shell / Bash"],
+devops:["Jenkins","Docker","Kubernetes","Git","Bitbucket","Ansible","SonarQube","Linux"],
+frameworks:["JMeter","TestNG","JUnit","Jest","Cucumber BDD","Maven","Percy","Robot Framework"],
+management:["JIRA (X-Ray)","HP ALM","TestRail","Zephyr","Confluence"],
+cloud:["GCP","AWS (EC2, EKS, S3)","MySQL"],monitoring:["Grafana","Kibana","Prometheus","Dynatrace"],
+ai:["GenAI","RAG retrieval","MCP","AI chatbot validation"]};
+SK0.iac=["Terraform","Infrastructure as Code (GCP)"];
+const SK={cloud:SK0.cloud,iac:SK0.iac,devops:SK0.devops,...SK0};
+const $=s=>document.querySelector(s);
+$('#nav').innerHTML=PG.map((p,i)=>`<button data-i="${i}"><i>0${i+1}</i>${p[0]}</button>`).join('');
+$('#nav').onclick=e=>{const b=e.target.closest('[data-i]');if(b)document.getElementById('p'+b.dataset.i).scrollIntoView({behavior:RM?'auto':'smooth'})};
+async function typeInto(el,txt,sp=45,t=tok){el.textContent='';for(const c of txt){if(t!==tok)return false;el.textContent+=c;await sleep(sp)}return true}
+function count(){document.querySelectorAll('.n').forEach(el=>{const to=+el.dataset.to,t0=performance.now(),d=RM?1:1400;
+const f=n=>{const k=Math.min(1,(n-t0)/d);el.textContent=Math.round(to*(1-Math.pow(1-k,3))).toLocaleString();if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)})}
+async function terminal(t){const el=$('#tp');el.innerHTML='';
+const L=[["kranthi --summary","Sr. SDET · banking, wealth, capital markets, insurance, healthcare"],["kranthi --focus","API-first test automation · GCP · Terraform IaC · CI/CD · GenAI/RAG QA"],["kranthi --leads","teams of 6–8 QAs across cross-geo environments"],["kranthi --status","open to Sr. SDET, Lead, SDET, Manager, DevOps and Cloud roles"]];
+for(const [c,o] of L){if(t!==tok)return;const d=document.createElement('div');d.innerHTML='<span class="p">$ </span><span class="k"></span>';el.appendChild(d);
+if(!await typeInto(d.lastChild,c,28,t))return;await sleep(200);const r=document.createElement('div');r.className='o';r.textContent=o;el.appendChild(r);await sleep(350)}}
+async function pipeline(t){const S=["lint","unit","tf plan","api","contract","ui","perf","a11y","tf apply","deploy"],el=$('#pipe');
+el.innerHTML=S.map(s=>`<span class="st">${s}</span>`).join('<em>→</em>')+'<em id="res"></em>';
+const st=[...el.querySelectorAll('.st')];
+while(t===tok){st.forEach(s=>s.className='st');$('#res').textContent='';
+for(const s of st){if(t!==tok)return;s.className='st run';await sleep(420);s.className='st ok'}
+$('#res').textContent='  build passing ✓';await sleep(2600);if(RM)return}}
+function showExp(i){$('#tabs').querySelectorAll('button').forEach((b,j)=>b.classList.toggle('on',i===j));const e=EXP[i];
+$('#exc').innerHTML=`<h3>${e.role} — ${e.co}</h3><div class="meta">${e.when} · ${e.loc}</div><ul>${e.pts.map((p,k)=>`<li style="animation-delay:${RM?0:k*110}ms">${p}</li>`).join('')}</ul>`}
+$('#tabs').innerHTML=EXP.map((e,i)=>`<button data-x="${i}">${e.co}<small>${e.when}</small></button>`).join('');
+$('#tabs').onclick=e=>{const b=e.target.closest('[data-x]');if(b)showExp(+b.dataset.x)};
+function bars(){$('#bars').innerHTML=BARS.map(b=>`<div class="bar"><div class="t"><span>${b[0]}</span><span>${b[2]}</span></div><div class="trk"><div class="fill" data-w="${b[1]}"></div></div></div>`).join('');
+requestAnimationFrame(()=>requestAnimationFrame(()=>document.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%')))}
+let filt='all';
+function tags(){const keys=['all',...Object.keys(SK)];$('#chips').innerHTML=keys.map(k=>`<button data-f="${k}" class="${k===filt?'on':''}">${k}</button>`).join('');
+const items=Object.entries(SK).filter(([k])=>filt==='all'||k===filt).flatMap(([k,v])=>v.map(x=>[k,x]));
+$('#tags').innerHTML=items.map(([k,x],i)=>`<span class="tag" style="animation-delay:${RM?0:i*18}ms">${x}${filt==='all'?`<small>${k}</small>`:''}</span>`).join('')}
+$('#chips').onclick=e=>{const b=e.target.closest('[data-f]');if(b){filt=b.dataset.f;tags()}};
+const secs=[...document.querySelectorAll('.page')];
+secs.forEach(x=>x.classList.add('rv'));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');if(e.target.id==='p3')bars();io.unobserve(e.target)}),{threshold:.12});
+secs.forEach(x=>io.observe(x));
+const spy=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const i=secs.indexOf(e.target);document.querySelectorAll('#nav button').forEach((b,j)=>b.classList.toggle('on',j===i))}}),{rootMargin:'-40% 0px -55% 0px'});
+secs.forEach(x=>spy.observe(x));
+addEventListener('scroll',()=>{$('#bar').style.width=(scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight)*100)+'%'},{passive:true});
+const t0=tok;typeInto($('#name'),'Kranthi B. Irlapati',60,t0);count();terminal(t0);pipeline(t0);showExp(0);tags();
+</script>
+</body>
+</html>
